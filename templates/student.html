@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> Student Page </title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+
+    <link rel="stylesheet" href= "{{url_for('static',filename='ti-icons/css/themify-icons.css')}}">
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{{url_for('static',filename='script/vendor.bundle.base.js')}}">
+    <!-- endinject -->
+    <link rel="icon" href="{{url_for('static',filename='U.svg')}}">
+
+</head>
+
+<body>
+    <div class="container-scroller ">
+        <!-- partial:partials/_navbar.html -->
+        <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                <div class="navbar-brand brand-logo mr-5"><img src="static\logo1d.svg" class="mr-2" alt="logo" /></div>
+                <div class="navbar-brand brand-logo-mini"><img src="static\U.svg" alt="logo" /></div>
+            </div>
+
+            <div class="dropdown" style="margin-right: 2.5em; ">
+                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuSizeButton3"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Student
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton3">
+                    <li> {% for row in rows %}
+
+                        {{row["email"]}}
+                        
+                    {% endfor %}
+                    </li>
+                    <a class="dropdown-item" href="{{url_for('login')}}">Log out</a>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+
+    <div class="container-fluid page-body-wrapper w-100 ">
+        <div class="content-wrapper" style="min-height: inherit;">
+            <div class="container">
+                <div class="row mt-5">
+                    <div class="col-12 col-xl-12 mb-4 mb-xl-0">
+                        <h3 class="font-weight-bold">Welcome Student</h3>
+                         {% for row in rows %}
+
+                            <h4>{{row["name"]}}</h4>
+                            
+                        {% endfor %}
+                    
+                        <h5 >No Active Job Announcement</h5>
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- plugins:js -->
+    <script type="text/javascript" src="{{url_for('static',filename='script/vendor.bundle.base.js')}}"></script>
+    <!-- endinject -->
+</body>
+
+</html>
